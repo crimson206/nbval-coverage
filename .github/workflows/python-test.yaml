@@ -28,5 +28,5 @@ jobs:
         pip install .
     - name: Run tests with coverage
       run: |
-        pytest --nbval --cov=src/crimson/nbval_coverage --cov-report=html
+        pytest --nbval --cov=src/crimson --cov-report=html
 

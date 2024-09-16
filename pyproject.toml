@@ -30,7 +30,8 @@ classifiers = [
 
 ]
 dependencies = [
-    
+    "crimson-ast_dev_tool",
+    "crimson-templator",
 ]
 requires-python = ">=3.9"
 
