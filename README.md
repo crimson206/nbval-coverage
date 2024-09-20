@@ -1,98 +1,23 @@
-**Template README.md**\
-This file is from the [template repository](https://github.com/crimson206/template/blob/main/README.md).
-Rewrite it for your own package.
+# Nbval Coverage
 
-## Python Package Setup
+## Quick Start
 
-### Setup Base
+Use nbval to include your notebooks in pytest as well.
+It won't include in the coverage.
+Convert your notebooks into simplified pytest syntax,
+so that pytest will test them, and they are included in the coverage.
 
-To install required pip modules for `generate_toml.py`, run
-``` bash
-source scripts/setup_base.sh
+**Install**
+``` sh
+pip install crimson-nbval-coverage
 ```
 
-### User Setup
+### Example
 
-- go to `generate_toml.py` file, and complete the setup in the `User Setup` session.
+A test for this module is written in a notebook [example/test_processing.ipynb](example/test_processing.ipynb).
 
-```python
-options = Options(
-    # Will you use the discussion session in your repo?
-    discussion=False
-)
+The [example/__pytest__/test_ipynb_test_processing.py](example/__pytest__/test_ipynb_test_processing.py) file is generated, where all the lines in the notebook moved in one function.
 
-# Define the general information of your package
-kwargs = Kwargs(
-    name_space="None",
-    module_name="None",
-    description="None",
-)
-```
+## Reference
 
-If you wrote all the information, run
-```
-python generate_toml.py
-```
-
-#### Template
-
-If you want to understand the generation process, check the `template` variable in `generate_toml.py`.
-
-### Setup Env
-
-#### Prerequisite
-
-Finish [User Setup](#user-setup) first.
-Of course, conda command must be available.
-
-#### Setup Env
-
-Run
-``` bash
-source scripts/setup_env.sh
-```
-
-steps
-- create an conda environment named as your $MODULE_NAME
-- activate the environment.
-- install requirements.txt
-
-#### Generate Private Env
-Generate a private repository in this repo.
-I recommend you to write all the unstructured codes in this repo.
-
-``` bash
-source scripts/generate_dev_repo.sh
-```
-
-It will ask you the name of your repo, and then, generate a repo named f'{your_repo_name}-dev'.
-
-**Usage Tip**
-
-If you wrote your codes in a wrong branch,
-- backup the files to the dev repo
-- remove changes in your main(not main branch) repo
-- move to your correct branch
-- place back the backup codes
-
-
-## Workflows
-
-I currently setup test and release workflows.
-
-**Test**
-
-If you make a PR with the patterns [ main, develop, 'release/*', 'feature/*' ],
-
-It will perform your unittest in ["3.9", "3.10", "3.11"]
-
-**Release**
-
-required secret : PYPI_API_TOKEN
-
-I usually make PRs only when I start release branches.
-release workflow is not conducted automatically. If you think your branch is ready to be published, 
-
-- go to https://github.com/{github_id}/{repo_name}/actions/workflows/release.yaml
-- find the button, 'Run workflow'
-- select the branch to publish. In my case, release/x.x.x
+- [nbval github](https://github.com/computationalmodelling/nbval)

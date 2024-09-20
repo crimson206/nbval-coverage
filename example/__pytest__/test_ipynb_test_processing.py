@@ -1,10 +1,10 @@
 import os
 from crimson.nbval_coverage.generate_tests import process_notebooks_recursively, process_notebook, generate_pytest_path, delete_dir, Config
 
-def test_example_test():
+def test_example_test_processing():
     Config.is_notebook = False
     my_dir = './test.ipynb'
-    lvl2_dir = './lvl2/example.ipynb'
+    lvl2_dir = './lvl2/simple_notebook.ipynb'
     notebook_root = '.'
     pytest_root = os.path.join(notebook_root, '__pytest__')
     if not Config.is_notebook:
